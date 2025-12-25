@@ -101,9 +101,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const workItems = $$('#works .gallery .gallery-item');
 
         const getCourseFromItem = (item) => {
+            const dataCourse = item.dataset.course;
+            if (dataCourse) return dataCourse;
+
             const title = $('.gallery-info h3', item)?.textContent || '';
             const match = title.match(/курс\s*([1-4])/i);
-            return match ? match[1] : null;
+            if (match) return match[1];
+
+            const fallback = title.match(/([1-4])\s*$/);
+            return fallback ? fallback[1] : null;
         };
 
         const applyFilter = (course) => {
