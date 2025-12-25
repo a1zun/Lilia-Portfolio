@@ -191,6 +191,42 @@ section {
     margin-bottom: 3rem;
 }
 
+/* Фильтр по курсам */
+.works-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    border: 2px solid var(--primary-color);
+    background: var(--white);
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.filter-btn.active {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.gallery-item.is-hidden {
+    display: none;
+}
+
 /* Секция Работы */
 .works-section {
     background: var(--bg-light);
@@ -210,6 +246,12 @@ section {
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
     cursor: pointer;
+}
+
+.gallery-item:not(.gallery-item-fullwidth) {
+    max-width: 420px;
+    width: 100%;
+    justify-self: center;
 }
 
 .gallery-item:hover {
@@ -611,5 +653,3 @@ section {
         padding: 0 15px;
     }
 }
-
-
