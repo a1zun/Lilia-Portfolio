@@ -94,6 +94,41 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === modal) hideModal();
     });
 
+    // ===== Works filter =====
+    const filterBar = $('.works-filters');
+    if (filterBar) {
+        const filterButtons = $$('.filter-btn', filterBar);
+        const workItems = $$('#works .gallery .gallery-item');
+
+        const getCourseFromItem = (item) => {
+            const title = $('.gallery-info h3', item)?.textContent || '';
+            const match = title.match(/курс\s*([1-4])/i);
+            return match ? match[1] : null;
+        };
+
+        const applyFilter = (course) => {
+            workItems.forEach((item) => {
+                const itemCourse = getCourseFromItem(item);
+                const shouldShow = course === 'all' || itemCourse === course;
+                item.classList.toggle('is-hidden', !shouldShow);
+            });
+        };
+
+        filterButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const course = btn.dataset.course || 'all';
+                filterButtons.forEach((button) => {
+                    const isActive = button === btn;
+                    button.classList.toggle('active', isActive);
+                    button.setAttribute('aria-pressed', String(isActive));
+                });
+                applyFilter(course);
+            });
+        });
+
+        applyFilter('all');
+    }
+
     // один обработчик на весь документ
     document.addEventListener('click', (e) => {
         const item = e.target.closest('.gallery-item');
