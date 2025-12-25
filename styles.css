@@ -187,7 +187,7 @@ section {
 .section-subtitle {
     text-align: center;
     color: var(--text-light);
-    font-size: 1.1rem;
+    font-size: 25px;
     margin-bottom: 3rem;
 }
 
@@ -218,9 +218,9 @@ section {
 }
 
 .gallery-image-placeholder {
-    width: 100%;
+    width: 105%;
     height: 300px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,7 +247,7 @@ section {
 }
 
 .gallery-image {
-    width: 100%;
+    width: 105%;
     height: 300px;
     object-fit: cover;
     display: block;
@@ -277,6 +277,50 @@ section {
 .gallery-item-fullwidth .gallery-image-placeholder {
     height: auto;
     min-height: 400px;
+    position: relative;
+}
+
+.gallery-image-placeholder {
+    position: relative;
+}
+
+.art-number {
+    position: absolute;
+    bottom: 120px;
+    right: 350px;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.project-number {
+    position: absolute;
+    bottom: 410px;
+    right: 1200px;
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.project-number1 {
+    position: absolute;
+    bottom: 840px;
+    right: 1200px;
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .gallery-info {
@@ -293,9 +337,14 @@ section {
     color: var(--text-light);
 }
 
+/* Секция Мое хобби */
+.hobby-section {
+    background: var(--white);
+}
+
 /* Секция Обо мне */
 .about-section {
-    background: var(--white);
+    background: var(--bg-light);
 }
 
 .about-content {
@@ -419,28 +468,30 @@ section {
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
-
+.section-subtitle-hobby {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 25px;
+    margin-bottom: 3rem;
+}
 /* Модальное окно */
 .modal {
-    display: none;
     position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    animation: fadeIn 0.3s ease;
-}
+    inset: 0;
+    display: none;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    overflow: auto;          
+    -webkit-overflow-scrolling: touch;
+    padding: 24px 16px;      
+  }
 
-.modal-content {
-    margin: auto;
+  .modal-content {
     display: block;
-    max-width: 90%;
-    max-height: 90%;
-    margin-top: 5%;
-    border-radius: 10px;
-}
+    margin: 0 auto;
+    max-width: 92vw;
+    height: auto;
+  }
 
 .close-modal {
     position: absolute;
@@ -458,11 +509,11 @@ section {
 }
 
 .modal-caption {
-    text-align: center;
-    color: var(--white);
-    padding: 20px;
-    font-size: 1.2rem;
-}
+    max-width: 92vw;
+    margin: 12px auto 0;
+    color: #fff;
+    line-height: 1.4;
+  }
 
 /* Футер */
 .footer {
